@@ -37,7 +37,7 @@ function draw_legend(quad, left, top) {
 
   radar.add(pv.Label)
        .left(qleft)
-       .top(qtop -18)
+       .top(qtop -98)
        .anchor("left")
        .add(pv.Label)
              .text(quad.name)
@@ -70,8 +70,8 @@ for (var i = 0; i < radar_quadrants.length; i++) {
 } */            
 
     radar.add(pv.Label)
-         .left(45)
-         .top(18)
+         .left(55)
+         .top(25)
          .fillStyle("#aec7e8") 
          .text(radar_quadrants[0].name)
          .font("18px sans-serif");
@@ -79,13 +79,13 @@ for (var i = 0; i < radar_quadrants.length; i++) {
     radar.add(pv.Dot) 
         .data(radar_data.slice(radar_quadrants[0].start,radar_quadrants[0].end)) 
         .left(5) 
-        .top(function() {return (36 + this.index * 18);}) 
+        .top(function() {return (38 + this.index * 18);})
         .size(8) 
         .strokeStyle(null) 
         .angle(45)
         .shape(function(d) {return (d.movement === 't' ? "triangle" : "circle");})        
         .fillStyle("#aec7e8") 
-      .anchor("right").add(pv.Label).text(function(d) {return this.index + 1 + ". " + d.name;} );
+      .anchor("right").add(pv.Label).text(function(d) {return this.index + 1 + radar_quadrants[0].start + ". " + d.name;} );
 
     radar.anchor("left").add(pv.Label)
          .left(5)
