@@ -17,7 +17,7 @@ var radar_data = [
 {"name":"Quality Analytics", "pc":{"r":30,"t":100},"movement":"t"},
 {"name":"Continuous Deployment", "pc":{"r":30,"t":160},"movement":"t"},
 //
-{"name":"ESB", "pc":{"r":390,"t":20},"movement":"t"},   
+//{"name":"ESB", "pc":{"r":390,"t":20},"movement":"t"},
 {"name":"Intentional Programming", "pc":{"r":310,"t":10},"movement":"c"},   
 {"name":"Cross mobile platforms", "pc":{"r":280,"t":85},"movement":"c"},   
 {"name":"Github", "pc":{"r":280,"t":70},"movement":"c"},   
@@ -74,10 +74,10 @@ var radar_data = [
 
 //left to right -> top to bottom
 var radar_quadrants = [
-{"name":"Techniques", "start":0, "end":17},
-{"name":"Tools", "start":17, "end":35},
-{"name":"Platforms", "start":47, "end":70},
-{"name":"Languages", "start":35, "end":46}
+{"name":"Techniques", "start":0, "end":16},
+{"name":"Tools", "start":16, "end":34},
+{"name":"Platforms", "start":45, "end":70},
+{"name":"Languages", "start":34, "end":45}
 ];
 //
 var radar_arcs = [{'r':100,'name':'Adopt'},{'r':200,'name':'Trial'},{'r':300,'name':'Assess'},{'r':400,'name':'Hold'}];
