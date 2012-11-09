@@ -1,4 +1,5 @@
 var radar_data = [
+// TECHNOLOGIES
 {"name":"Exhaustive Browser Based Testing", "pc":{"r":350,"t":135},"movement":"t"},
 // {"name":"Scrum certification", "pc":{"r":350,"t":95},"movement":"c"},
 {"name":"Logs As Data", "pc":{"r":250,"t":165},"movement":"t"},
@@ -16,26 +17,29 @@ var radar_data = [
 {"name":"Automated Build Pipelines", "pc":{"r":70,"t":170},"movement":"t"},
 {"name":"Quality Analytics", "pc":{"r":30,"t":100},"movement":"t"},
 {"name":"Continuous Deployment", "pc":{"r":30,"t":160},"movement":"t"},
+// TOOLS
+{"name":"Maven", "pc":{"r":310,"t":10},"movement":"t"},
+{"name":"Aquillian", "pc":{"r":280,"t":85},"movement":"t"},
+{"name":"D3", "pc":{"r":280,"t":70},"movement":"t"},
+{"name":"JBehave", "pc":{"r":280,"t":50},"movement":"t"},
+{"name":"GPars", "pc":{"r":280,"t":30},"movement":"t"},
+{"name":"Jasmine", "pc":{"r":240,"t":50},"movement":"t"},
+{"name":"Simpleweb/Webbit", "pc":{"r":240,"t":30},"movement":"t"},
+{"name":"Geb", "pc":{"r":180,"t":65},"movement":"t"},
+{"name":"Highcharts", "pc":{"r":180,"t":50},"movement":"t"},
+{"name":"Thurcylides", "pc":{"r":160,"t":85},"movement":"t"},
+{"name":"Robolectric", "pc":{"r":130,"t":85},"movement":"t"},
+{"name":"Robotium", "pc":{"r":130,"t":55},"movement":"t"},
+{"name":"Locust", "pc":{"r":130,"t":30},"movement":"t"},
+{"name":"EasyB", "pc":{"r":130,"t":15},"movement":"t"},
+{"name":"Puppet", "pc":{"r":80,"t":85},"movement":"t"},
+{"name":"Vagrant/Veewee", "pc":{"r":80,"t":10},"movement":"t"},
+{"name":"Gradle", "pc":{"r":30,"t":30},"movement":"t"},
+{"name":"Sonar", "pc":{"r":50,"t":45},"movement":"t"},
+{"name":"Liquibase", "pc":{"r":80,"t":50},"movement":"t"},
+{"name":"Concordion", "pc":{"r":70,"t":70},"movement":"t"},
+{"name":"Embedded Servlet Containers", "pc":{"r":80,"t":30},"movement":"t"},
 //
-//{"name":"ESB", "pc":{"r":390,"t":20},"movement":"t"},
-{"name":"Intentional Programming", "pc":{"r":310,"t":10},"movement":"c"},   
-{"name":"Cross mobile platforms", "pc":{"r":280,"t":85},"movement":"c"},   
-{"name":"Github", "pc":{"r":280,"t":70},"movement":"c"},   
-{"name":"Restfulie", "pc":{"r":280,"t":50},"movement":"c"},   
-{"name":"RDF triple stores", "pc":{"r":280,"t":30},"movement":"c"},   
-{"name":"Apache camel", "pc":{"r":180,"t":85},"movement":"c"},   
-{"name":"Next gen test tools", "pc":{"r":180,"t":75},"movement":"c"},   
-{"name":"NoSQL", "pc":{"r":180,"t":65},"movement":"c"},   
-{"name":"Neo4j", "pc":{"r":180,"t":50},"movement":"c"},   
-{"name":"Message busses without smarts", "pc":{"r":160,"t":85},"movement":"c"},   
-{"name":"Puppet", "pc":{"r":130,"t":85},"movement":"c"},   
-{"name":"mongoDB", "pc":{"r":130,"t":55},"movement":"c"},   
-{"name":"Mercurial", "pc":{"r":130,"t":30},"movement":"c"},   
-{"name":"Git", "pc":{"r":130,"t":15},"movement":"c"},   
-{"name":"Squid", "pc":{"r":80,"t":85},"movement":"c"},   
-{"name":"ASP.NET MVC", "pc":{"r":80,"t":10},"movement":"c"},   
-{"name":"Subversion", "pc":{"r":30,"t":30},"movement":"c"},   
-{"name":"Java language end of life", "pc":{"r":290,"t":355},"movement":"c"},   
 {"name":"F#", "pc":{"r":270,"t":330},"movement":"c"},   
 {"name":"Scala", "pc":{"r":290,"t":320},"movement":"c"},   
 {"name":"Clojure", "pc":{"r":260,"t":310},"movement":"c"},   
@@ -75,9 +79,9 @@ var radar_data = [
 //left to right -> top to bottom
 var radar_quadrants = [
 {"name":"Techniques", "start":0, "end":16},
-{"name":"Tools", "start":16, "end":34},
+{"name":"Tools", "start":16, "end":37},
 {"name":"Platforms", "start":45, "end":70},
-{"name":"Languages", "start":34, "end":45}
+{"name":"Languages", "start":37, "end":45}
 ];
 //
 var radar_arcs = [{'r':100,'name':'Adopt'},{'r':200,'name':'Trial'},{'r':300,'name':'Assess'},{'r':400,'name':'Hold'}];
