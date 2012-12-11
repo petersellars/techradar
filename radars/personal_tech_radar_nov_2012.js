@@ -39,51 +39,52 @@ var radar_data = [
 {"name":"Liquibase", "pc":{"r":80,"t":50},"movement":"t"},
 {"name":"Concordion", "pc":{"r":70,"t":70},"movement":"t"},
 {"name":"Embedded Servlet Containers", "pc":{"r":80,"t":30},"movement":"t"},
-//
-{"name":"F#", "pc":{"r":270,"t":330},"movement":"c"},   
+// LANGUAGES & FRAMEWORKS
+{"name":"Twitter Bootstrap", "pc":{"r":270,"t":330},"movement":"c"},
 {"name":"Scala", "pc":{"r":290,"t":320},"movement":"c"},   
-{"name":"Clojure", "pc":{"r":260,"t":310},"movement":"c"},   
-{"name":"HTML 5", "pc":{"r":250,"t":275},"movement":"c"},   
+{"name":"Geb", "pc":{"r":260,"t":310},"movement":"c"},
+{"name":"Grails 2.0", "pc":{"r":250,"t":275},"movement":"c"},
 {"name":"DSLs", "pc":{"r":190,"t":340},"movement":"c"},   
 {"name":"Groovy", "pc":{"r":190,"t":280},"movement":"c"},   
-{"name":"C#4", "pc":{"r":90,"t":355},"movement":"c"},   
-{"name":"JRuby", "pc":{"r":90,"t":330},"movement":"c"},   
-{"name":"Javascript as a 1st class language", "pc":{"r":90,"t":275},"movement":"c"},   
-{"name":"Ruby", "pc":{"r":30,"t":282},"movement":"c"},   
-{"name":"Rich internet applications", "pc":{"r":390,"t":265},"movement":"c"},   
-{"name":"GWT", "pc":{"r":390,"t":250},"movement":"c"},   
-{"name":"IE8", "pc":{"r":390,"t":230},"movement":"c"},   
-{"name":"WS-* beyond basic profile", "pc":{"r":390,"t":190},"movement":"c"},   
-{"name":"Azure", "pc":{"r":290,"t":265},"movement":"c"},   
-{"name":"Mobile Web", "pc":{"r":275,"t":260},"movement":"t"},   
-{"name":"Google App Engine", "pc":{"r":290,"t":255},"movement":"c"},   
-{"name":"Application appliances", "pc":{"r":190,"t":245},"movement":"c"},   
-{"name":"Google as corporate platform", "pc":{"r":290,"t":200},"movement":"c"},   
-{"name":"GPGPU", "pc":{"r":190,"t":185},"movement":"t"},   
-{"name":"App containers", "pc":{"r":250,"t":260},"movement":"c"},   
-{"name":"OAuth", "pc":{"r":130,"t":260},"movement":"t"},   
-{"name":"RDFa", "pc":{"r":130,"t":250},"movement":"t"},   
-{"name":"Location based services", "pc":{"r":130,"t":230},"movement":"c"},   
-{"name":"iPad", "pc":{"r":130,"t":220},"movement":"c"},   
-{"name":"EC2 & S3", "pc":{"r":190,"t":250},"movement":"c"},   
-{"name":"Facebook as a business platform", "pc":{"r":190,"t":190},"movement":"c"},   
-{"name":"JVM as platform", "pc":{"r":90,"t":265},"movement":"c"},   
-{"name":"iPhone", "pc":{"r":90,"t":215},"movement":"c"},   
-{"name":"Android", "pc":{"r":90,"t":190},"movement":"c"},   
-{"name":"KVM", "pc":{"r":70,"t":260},"movement":"t"},   
-{"name":"Atom", "pc":{"r":70,"t":245},"movement":"t"},   
-{"name":"ALT.NET", "pc":{"r":90,"t":190},"movement":"c"},   
-{"name":"IE6 End of Life", "pc":{"r":30,"t":225},"movement":"c"}     
+{"name":"JSON", "pc":{"r":90,"t":355},"movement":"c"},
+{"name":"DropWizard", "pc":{"r":90,"t":330},"movement":"c"},
+{"name":"HTML 5", "pc":{"r":90,"t":330},"movement":"c"},
+{"name":"Angular JS", "pc":{"r":90,"t":330},"movement":"c"},
+{"name":"Clojure", "pc":{"r":90,"t":330},"movement":"c"},
+{"name":"DSLs", "pc":{"r":90,"t":330},"movement":"c"},
+{"name":"Knockout", "pc":{"r":90,"t":330},"movement":"c"},
+{"name":"Spring Social", "pc":{"r":90,"t":330},"movement":"c"},
+{"name":"Require.js", "pc":{"r":90,"t":330},"movement":"c"},
+{"name":"Gremlin", "pc":{"r":90,"t":330},"movement":"c"},
+{"name":"WordPress", "pc":{"r":90,"t":330},"movement":"c"},
+// PLATFORMS
+{"name":"Private Cloud", "pc":{"r":30,"t":210},"movement":"c"},
+{"name":"Neo4j", "pc":{"r":50,"t":225},"movement":"c"},
+{"name":"Node.js", "pc":{"r":390,"t":265},"movement":"c"},
+{"name":"MongoDB", "pc":{"r":390,"t":250},"movement":"c"},
+{"name":"OpenStack", "pc":{"r":390,"t":230},"movement":"c"},
+{"name":"JBoss Rules", "pc":{"r":390,"t":190},"movement":"c"},
+{"name":"OpenNebula", "pc":{"r":290,"t":265},"movement":"c"},
+{"name":"Redis", "pc":{"r":275,"t":260},"movement":"t"},
+{"name":"Couchbase", "pc":{"r":290,"t":255},"movement":"c"},
+{"name":"Riak", "pc":{"r":190,"t":245},"movement":"c"},
+{"name":"Hybrid Clouds", "pc":{"r":290,"t":200},"movement":"c"},
+{"name":"Meteor.js", "pc":{"r":190,"t":185},"movement":"t"},
+{"name":"BiqQuery", "pc":{"r":250,"t":260},"movement":"c"},
+{"name":"Calatrava", "pc":{"r":130,"t":260},"movement":"t"},
+{"name":"Vert.x", "pc":{"r":130,"t":250},"movement":"t"},
+{"name":"Java Portal Servers", "pc":{"r":130,"t":230},"movement":"c"},
 ];
 
 //left to right -> top to bottom
 var radar_quadrants = [
 {"name":"Techniques", "start":0, "end":16},
 {"name":"Tools", "start":16, "end":37},
-{"name":"Platforms", "start":45, "end":70},
-{"name":"Languages", "start":37, "end":45}
+{"name":"Platforms", "start":54, "end":70},
+{"name":"Languages", "start":37, "end":54}
+//{"name":"Languages/Frameworks", "start":37, "end":45}
 ];
 //
 var radar_arcs = [{'r':100,'name':'Adopt'},{'r':200,'name':'Trial'},{'r':300,'name':'Assess'},{'r':400,'name':'Hold'}];
 
-var radar_title = "Peter Sellars - Personal Technology Radar (Aug 2012)";
+var radar_title = "Peter Sellars - Personal Technology Radar (Dec 2012)";
