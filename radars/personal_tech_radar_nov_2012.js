@@ -1,5 +1,6 @@
 var radar_data = [
 // TECHNOLOGIES
+{"name":"Adopt","pc":{"r":0,"t":0},"movement":"r"},
 {"name":"Exhaustive Browser Based Testing", "pc":{"r":350,"t":135},"movement":"t"},
 // {"name":"Scrum certification", "pc":{"r":350,"t":95},"movement":"c"},
 {"name":"Logs As Data", "pc":{"r":250,"t":165},"movement":"t"},
@@ -18,7 +19,7 @@ var radar_data = [
 {"name":"Quality Analytics", "pc":{"r":40,"t":110},"movement":"t"},
 {"name":"Continuous Deployment", "pc":{"r":30,"t":160},"movement":"t"},
 // TOOLS
-{"name":"Maven", "pc":{"r":310,"t":10},"movement":"t"},
+{"name":"Maven", "pc":{"r":330,"t":10},"movement":"t"},
 {"name":"Aquillian", "pc":{"r":280,"t":85},"movement":"t"},
 {"name":"D3", "pc":{"r":280,"t":70},"movement":"t"},
 {"name":"JBehave", "pc":{"r":280,"t":50},"movement":"t"},
@@ -72,7 +73,7 @@ var radar_data = [
 {"name":"BiqQuery", "pc":{"r":250,"t":260},"movement":"t"},
 {"name":"Calatrava", "pc":{"r":240,"t":220},"movement":"t"},
 {"name":"Vert.x", "pc":{"r":255,"t":240},"movement":"t"},
-{"name":"Java Portal Servers", "pc":{"r":320,"t":260},"movement":"t"},
+{"name":"Java Portal Servers", "pc":{"r":340,"t":240},"movement":"t"},
 ];
 
 //left to right -> top to bottom
@@ -84,6 +85,6 @@ var radar_quadrants = [
 //{"name":"Languages/Frameworks", "start":37, "end":45}
 ];
 //
-var radar_arcs = [{'r':100,'name':'Adopt'},{'r':200,'name':'Trial'},{'r':300,'name':'Assess'},{'r':400,'name':'Hold'}];
+var radar_arcs = [{'r':100,'name':'Adopt'},{'r':200,'name':'Trial'},{'r':300,'name':''},{'r':310,'name':'Assess'},{'r':400,'name':'Hold'}];
 
 var radar_title = "Peter Sellars - Personal Technology Radar (Dec 2012)";

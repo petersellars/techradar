@@ -2,7 +2,8 @@ function init(h,w) {
 
  document.getElementById('title').text = radar_title;
 
-  
+ var ITEM_INDEX_SHAPE_SIZE = 25;
+
  var radar = new pv.Panel()
       .width(w)
       .height(h)
@@ -11,10 +12,10 @@ function init(h,w) {
      .add(pv.Dot)
        .def("active", false)
        .data(radar_data)
-       .left(function(d) { var x = polar_to_raster(d.pc.r, d.pc.t)[0];
-              console.log("name:" + d.name + ", x:" + x); return x;})
-         .bottom(function(d) { var y = polar_to_raster(d.pc.r, d.pc.t)[1];                                 
-                  console.log("name:" + d.name + ", y:" + y); return y;})
+       .left(function(d) { var x = polar_to_raster(d.pc.r, d.pc.t)[0];return x})
+              //console.log("name:" + d.name + ", x:" + x); return x;})
+         .bottom(function(d) { var y = polar_to_raster(d.pc.r, d.pc.t)[1];return y})
+                  //console.log("name:" + d.name + ", y:" + y); return y;})
          .title(function(d) { return d.name;})
          .angle(45)
          .fillStyle("#aec7e8")
@@ -75,17 +76,24 @@ for (var i = 0; i < radar_quadrants.length; i++) {
          .fillStyle("#aec7e8") 
          .text(radar_quadrants[0].name)
          .font("18px sans-serif");
-  
+
     radar.add(pv.Dot) 
-        .data(radar_data.slice(radar_quadrants[0].start,radar_quadrants[0].end)) 
+        .data(radar_data.slice(radar_quadrants[0].start,radar_quadrants[0].end))
         .left(5) 
         .top(function() {return (38 + this.index * 18);})
-        .size(8) 
+        .size(ITEM_INDEX_SHAPE_SIZE)
         .strokeStyle(null) 
         .angle(45)
-        .shape(function(d) {return (d.movement === 't' ? "triangle" : "circle");})        
+        .shape(function(d) {
+            return (d.movement === 't' ? "triangle" : "circle");
+         })
         .fillStyle("#aec7e8") 
-      .anchor("right").add(pv.Label).text(function(d) {return this.index + 1 + radar_quadrants[0].start + ". " + d.name;} );
+        .anchor("right")
+        .add(pv.Label)
+        .text(function(d) {
+            if (d.movement === "t") { console.log("D"); }
+            return this.index + 1 + radar_quadrants[0].start + ". " + d.name;
+         });
 
     radar.anchor("left").add(pv.Label)
          .left(5)
@@ -98,7 +106,7 @@ for (var i = 0; i < radar_quadrants.length; i++) {
         .data(radar_data.slice(radar_quadrants[2].start,radar_quadrants[2].end)) 
         .left(5) 
         .top(function() {return ((h/2) + 36 + this.index * 18);}) 
-        .size(8) 
+        .size(ITEM_INDEX_SHAPE_SIZE)
         .strokeStyle(null) 
         .angle(45)
         .shape(function(d) {return (d.movement === 't' ? "triangle" : "circle");})        
@@ -117,7 +125,7 @@ for (var i = 0; i < radar_quadrants.length; i++) {
         .data(radar_data.slice(radar_quadrants[1].start,radar_quadrants[1].end)) 
         .left(w-200+30) 
         .top(function() {return (36 + this.index * 18);}) 
-        .size(8)
+        .size(ITEM_INDEX_SHAPE_SIZE)
         .angle(45)
         .shape(function(d) {return (d.movement === 't' ? "triangle" : "circle");})         
         .strokeStyle(null) 
@@ -135,7 +143,7 @@ for (var i = 0; i < radar_quadrants.length; i++) {
         .data(radar_data.slice(radar_quadrants[3].start,radar_quadrants[3].end)) 
         .left(w-200+30) 
         .top(function() {return ((h/2) + 36 + this.index * 18);}) 
-        .size(8) 
+        .size(ITEM_INDEX_SHAPE_SIZE)
         .strokeStyle(null) 
         .angle(45)
         .shape(function(d) {return (d.movement === 't' ? "triangle" : "circle");})        
@@ -149,13 +157,14 @@ radar.add(pv.Dot)
        .bottom(h/2)
        .radius(function(d){return d.r;})
        .strokeStyle("#ccc")
-       .anchor("top")       
-       .add(pv.Label).text(function(d) { return d.name;});
+       .anchor("top")
+       .add(pv.Label).text(function(d) { return d.name;})
+       .font("20px sans-serif");
 
 
 //quadrant lines
 radar.add(pv.Line)
-        .data([(h/2-radar_arcs[3].r),h-(h/2-radar_arcs[3].r)])
+        .data([(h/2-radar_arcs[4].r),h-(h/2-radar_arcs[4].r)])
         .lineWidth(1)
         .left(w/2)        
         .bottom(function(d) {return d;})       
