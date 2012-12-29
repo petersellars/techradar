@@ -1,6 +1,6 @@
 var radar_data = [
 // TECHNOLOGIES
-{"name":"Adopt","pc":{"r":0,"t":0},"movement":"r"},
+//{"name":"Adopt","pc":{"r":0,"t":0},"movement":"r"},
 {"name":"Exhaustive Browser Based Testing", "pc":{"r":350,"t":135},"movement":"t"},
 // {"name":"Scrum certification", "pc":{"r":350,"t":95},"movement":"c"},
 {"name":"Logs As Data", "pc":{"r":250,"t":165},"movement":"t"},
