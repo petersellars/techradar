@@ -15,7 +15,7 @@ var radar_data = [
 {"name":"Pomodoro Technique", "pc":{"r":90,"t":140},"movement":"t"},
 {"name":"WIP Limits", "pc":{"r":80,"t":100},"movement":"t"},
 {"name":"Automated Build Pipelines", "pc":{"r":70,"t":170},"movement":"t"},
-{"name":"Quality Analytics", "pc":{"r":30,"t":100},"movement":"t"},
+{"name":"Quality Analytics", "pc":{"r":40,"t":110},"movement":"t"},
 {"name":"Continuous Deployment", "pc":{"r":30,"t":160},"movement":"t"},
 // TOOLS
 {"name":"Maven", "pc":{"r":310,"t":10},"movement":"t"},
@@ -41,29 +41,28 @@ var radar_data = [
 {"name":"Embedded Servlet Containers", "pc":{"r":80,"t":30},"movement":"t"},
 // LANGUAGES & FRAMEWORKS
 {"name":"Twitter Bootstrap", "pc":{"r":30,"t":320},"movement":"t"},
-{"name":"Scala", "pc":{"r":60,"t":290},"movement":"t"},
 {"name":"Geb", "pc":{"r":80,"t":310},"movement":"t"},
 {"name":"Grails 2.0", "pc":{"r":50,"t":340},"movement":"t"},
-{"name":"DSLs", "pc":{"r":80,"t":340},"movement":"t"},
-{"name":"Groovy", "pc":{"r":85,"t":290},"movement":"t"},
-{"name":"JSON", "pc":{"r":120,"t":290},"movement":"c"},
-{"name":"DropWizard", "pc":{"r":170,"t":350},"movement":"c"},
-{"name":"HTML 5", "pc":{"r":160,"t":330},"movement":"c"},
-{"name":"Angular JS", "pc":{"r":180,"t":290},"movement":"c"},
-{"name":"Clojure", "pc":{"r":170,"t":310},"movement":"c"},
-{"name":"DSLs", "pc":{"r":120,"t":320},"movement":"c"},
-{"name":"Knockout", "pc":{"r":220,"t":330},"movement":"c"},
-{"name":"Spring Social", "pc":{"r":240,"t":300},"movement":"c"},
-{"name":"Require.js", "pc":{"r":250,"t":350},"movement":"c"},
-{"name":"Gremlin", "pc":{"r":260,"t":280},"movement":"c"},
-{"name":"WordPress", "pc":{"r":350,"t":300},"movement":"c"},
+{"name":"Silverstripe", "pc":{"r":80,"t":340},"movement":"t"},
+{"name":"JSON", "pc":{"r":60,"t":290},"movement":"t"},
+{"name":"DropWizard", "pc":{"r":80,"t":290},"movement":"t"},
+{"name":"HTML 5", "pc":{"r":160,"t":330},"movement":"t"},
+{"name":"Angular JS", "pc":{"r":180,"t":290},"movement":"t"},
+{"name":"Clojure", "pc":{"r":170,"t":310},"movement":"t"},
+{"name":"DSLs", "pc":{"r":120,"t":320},"movement":"t"},
+{"name":"Knockout", "pc":{"r":130,"t":350},"movement":"t"},
+{"name":"Spring Social", "pc":{"r":120,"t":280},"movement":"t"},
+{"name":"Require.js", "pc":{"r":250,"t":350},"movement":"t"},
+{"name":"Gremlin", "pc":{"r":260,"t":280},"movement":"t"},
+{"name":"WordPress", "pc":{"r":350,"t":300},"movement":"t"},
 // PLATFORMS
 {"name":"Private Cloud", "pc":{"r":30,"t":210},"movement":"t"},
 {"name":"Neo4j", "pc":{"r":50,"t":225},"movement":"t"},
 {"name":"Node.js", "pc":{"r":80,"t":215},"movement":"t"},
 {"name":"MongoDB", "pc":{"r":35,"t":250},"movement":"t"},
 {"name":"OpenStack", "pc":{"r":70,"t":245},"movement":"t"},
-{"name":"JBoss Rules", "pc":{"r":70,"t":190},"movement":"t"},
+{"name":"CrouchDB", "pc":{"r":70,"t":190},"movement":"t"},
+{"name":"JBoss Rules", "pc":{"r":140, "t":190},"movement":"t"},
 {"name":"OpenNebula", "pc":{"r":120,"t":220},"movement":"t"},
 {"name":"Redis", "pc":{"r":180,"t":200},"movement":"t"},
 {"name":"Couchbase", "pc":{"r":160,"t":215},"movement":"t"},
@@ -80,8 +79,8 @@ var radar_data = [
 var radar_quadrants = [
 {"name":"Techniques", "start":0, "end":16},
 {"name":"Tools", "start":16, "end":37},
-{"name":"Platforms", "start":54, "end":70},
-{"name":"Languages", "start":37, "end":54}
+{"name":"Platforms", "start":52, "end":70},
+{"name":"Languages", "start":37, "end":52}
 //{"name":"Languages/Frameworks", "start":37, "end":45}
 ];
 //
