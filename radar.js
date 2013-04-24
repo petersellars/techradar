@@ -77,6 +77,8 @@ for (var i = 0; i < radar_quadrants.length; i++) {
          .text(radar_quadrants[0].name)
          .font("18px sans-serif");
 
+    var r = 0;
+
     radar.add(pv.Dot) 
         .data(radar_data.slice(radar_quadrants[0].start,radar_quadrants[0].end))
         .left(5) 
@@ -85,14 +87,18 @@ for (var i = 0; i < radar_quadrants.length; i++) {
         .strokeStyle(null) 
         .angle(45)
         .shape(function(d) {
+            if (d.movement === 'r') { return "cross"; }
             return (d.movement === 't' ? "triangle" : "circle");
          })
         .fillStyle("#aec7e8") 
         .anchor("right")
         .add(pv.Label)
         .text(function(d) {
-            if (d.movement === "t") { console.log("D"); }
-            return this.index + 1 + radar_quadrants[0].start + ". " + d.name;
+            if (d.movement === 'r') { r += 1; return d.name; }
+            return this.index + 1 - r + radar_quadrants[0].start + ". " + d.name;
+         })
+        .font(function(d) {
+            if (d.movement == 'r') { return "14px sans-serif"; }
          });
 
     radar.anchor("left").add(pv.Label)

@@ -7,6 +7,7 @@ var radar_data = [
 {"name":"Declarative Provisioning", "pc":{"r":250,"t":110},"movement":"t"},
 {"name":"Polygot Persistence", "pc":{"r":250,"t":130},"movement":"t"},
 {"name":"Configuration In DNS", "pc":{"r":260,"t":150},"movement":"t"},
+//{"name":"Trial","pc":{"r":0,"t":0},"movement":"r"},
 {"name":"Continuous Delivery", "pc":{"r":180,"t":125},"movement":"t"},
 {"name":"Micro Services", "pc":{"r":140,"t":120},"movement":"t"},
 {"name":"Deployment & Scripting Test Tools", "pc":{"r":160,"t":140},"movement":"t"},
