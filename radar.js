@@ -1,189 +1,173 @@
 function init(h,w) {
-
- document.getElementById('title').text = radar_title;
-
- var ITEM_INDEX_SHAPE_SIZE = 25;
-
- var radar = new pv.Panel()
-      .width(w)
-      .height(h)
-      .canvas('radar')
-      // .add(pv.Panel)
-     .add(pv.Dot)
-       .def("active", false)
-       .data(radar_data)
-       .left(function(d) { var x = polar_to_raster(d.pc.r, d.pc.t)[0];return x})
-              //console.log("name:" + d.name + ", x:" + x); return x;})
-         .bottom(function(d) { var y = polar_to_raster(d.pc.r, d.pc.t)[1];return y})
-                  //console.log("name:" + d.name + ", y:" + y); return y;})
-         .title(function(d) { return d.name;})
-         .angle(45)
-         .fillStyle("#aec7e8")
-         .shape(function(d) {return (d.movement === 't' ? "triangle" : "circle");})
-         // .event("mouseover", function() {this.fillStyle("orange");})
-         // .event("mouseout", function() {this.fillStyle("#aec7e8");})         
-         .anchor("top").add(pv.Label)
-             .text(function(d) {return this.index + 1 + ".";}) 
-             .textBaseline("left");
-
-             // .fillStyle("#aec7e8")
-
-             // .add(pv.Panel)
-             //   .def("active", false)
-             // .fillStyle(function() {this.parent.active() ? "orange" : "#aec7e8";})
-             //   .event("mouseover", function() {this.parent.active(true);})
-             //   .event("mouseout", function() {this.parent.active(false);})         
-
-function draw_legend(quad, left, top) {
-
-  radar.add(pv.Label)
-       .left(qleft)
-       .top(qtop -98)
-       .anchor("left")
-       .add(pv.Label)
-             .text(quad.name)
-             .font('24pt');
-  var t = radar_data.slice(quad.start,quad.end);
+    $('#title').text(document.title).width(w);  
+         
+   var radar = new pv.Panel()
+        .width(w)
+        .height(h)
+        .canvas('radar')
   
-  radar.add(pv.Dot) 
-      .data(t) 
-      .left(qleft) 
-      .top(function() {return (qtop + (this.index * 18));}) 
-      .size(8) 
-      .strokeStyle(null) 
-      .fillStyle("#aec7e8") 
-    .anchor("right")
-          .add(pv.Label)
-          .text(function(d) {return (quad.start + 1 + this.index) + ". " + d.name;} );
-}
-/*
-//race conditions?
-for (var i = 0; i < radar_quadrants.length; i++) {
-  var qleft = 5 + (1020 * ((i+1) % 2));
-  var qtop = 36 + (500 * (i > 1 ? 1: 0));
-  var quad = radar_quadrants[i];
+  // arcs
   radar.add(pv.Dot)
-      .strokeStyle(null)
-      .left(5)
+         .data(radar_arcs)
+         .left(w/2)
+         .bottom(h/2)
+         .radius(function(d){return d.r;})
+         .strokeStyle("#ccc")
+         .anchor("top")       
+         .add(pv.Label).text(function(d) { return d.name;});
   
-  draw_legend(quad, qleft, qtop);
+  //quadrant lines -- vertical
+  radar.add(pv.Line)
+          .data([(h/2-radar_arcs[radar_arcs.length-1].r),h-(h/2-radar_arcs[radar_arcs.length-1].r)])
+          .lineWidth(1)
+          .left(w/2)        
+          .bottom(function(d) {return d;})       
+          .strokeStyle("#bbb");
   
-} */            
-
-    radar.add(pv.Label)
-         .left(55)
-         .top(25)
-         .fillStyle("#aec7e8") 
-         .text(radar_quadrants[0].name)
-         .font("18px sans-serif");
-
-    var r = 0;
-
-    radar.add(pv.Dot) 
-        .data(radar_data.slice(radar_quadrants[0].start,radar_quadrants[0].end))
-        .left(5) 
-        .top(function() {return (38 + this.index * 18);})
-        .size(ITEM_INDEX_SHAPE_SIZE)
-        .strokeStyle(null) 
-        .angle(45)
-        .shape(function(d) {
-            if (d.movement === 'r') { return "cross"; }
-            return (d.movement === 't' ? "triangle" : "circle");
-         })
-        .fillStyle("#aec7e8") 
-        .anchor("right")
-        .add(pv.Label)
-        .text(function(d) {
-            if (d.movement === 'r') { r += 1; return d.name; }
-            return this.index + 1 - r + radar_quadrants[0].start + ". " + d.name;
-         })
-        .font(function(d) {
-            if (d.movement == 'r') { return "14px sans-serif"; }
-         });
-
-    radar.anchor("left").add(pv.Label)
-         .left(5)
-         .top(h/2 + 18)
-         .fillStyle("#aec7e8") 
-         .text(radar_quadrants[2].name)
-         .font("18px sans-serif");
-
-    radar.add(pv.Dot) 
-        .data(radar_data.slice(radar_quadrants[2].start,radar_quadrants[2].end)) 
-        .left(5) 
-        .top(function() {return ((h/2) + 36 + this.index * 18);}) 
-        .size(ITEM_INDEX_SHAPE_SIZE)
-        .strokeStyle(null) 
-        .angle(45)
-        .shape(function(d) {return (d.movement === 't' ? "triangle" : "circle");})        
-        .fillStyle("#aec7e8") 
-      .anchor("right").add(pv.Label).text(function(d) {return this.index + 1 + radar_quadrants[2].start + ". " + d.name;} );
-
-
-  radar.anchor("left").add(pv.Label)
-       .left(w-200+30)  
-       .top(18)
-       .text(radar_quadrants[1].name)
-       .font("18px sans-serif");
+  //quadrant lines -- horizontal 
+  radar.add(pv.Line)
+          .data([(w/2-radar_arcs[radar_arcs.length-1].r),w-(w/2-radar_arcs[radar_arcs.length-1].r)])
+          .lineWidth(1)
+          .bottom(h/2)
+          .left(function(d) {return d;})       
+          .strokeStyle("#bbb");
+  
+  
+  // blips
+  // var total_index=1;
+  // for (var i = 0; i < radar_data.length; i++) {
+  //     radar.add(pv.Dot)       
+  //     .def("active", false)
+  //     .data(radar_data[i].items)
+  //     .size( function(d) { return ( d.blipSize !== undefined ? d.blipSize : 70 ); })
+  //     .left(function(d) { var x = polar_to_raster(d.pc.r, d.pc.t)[0];
+  //                         //console.log("name:" + d.name + ", x:" + x); 
+  //                         return x;})
+  //     .bottom(function(d) { var y = polar_to_raster(d.pc.r, d.pc.t)[1];                                 
+  //                           //console.log("name:" + d.name + ", y:" + y); 
+  //                           return y;})
+  //     .title(function(d) { return d.name;})		 
+  //     .cursor( function(d) { return ( d.url !== undefined ? "pointer" : "auto" ); })                                                            
+  //     .event("click", function(d) { if ( d.url !== undefined ){self.location =  d.url}}) 
+  //     .angle(Math.PI)  // 180 degrees in radians !
+  //     .strokeStyle(radar_data[i].color)
+  //     .fillStyle(radar_data[i].color)
+  //     .shape(function(d) {return (d.movement === 't' ? "triangle" : "circle");})         
+  //     .anchor("center")
+  //         .add(pv.Label)
+  //         .text(function(d) {return total_index++;}) 
+  //         .textBaseline("middle")
+  //         .textStyle("white");            
+  // }
+  
+  
+  //Quadrant Ledgends
+  var radar_quadrant_ctr=1;
+  var quadrantFontSize = 18;
+  var headingFontSize = 14;
+  var stageHeadingCount = 0;
+  var lastRadius = 0;
+  var lastQuadrant='';
+  var spacer = 6;
+  var fontSize = 10;
+  var total_index = 1;
+  
+  //TODO: Super fragile: re-order the items, by radius, in order to logically group by the rings.
+  for (var i = 0; i < radar_data.length; i++) {
+      //adjust top by the number of headings.
+      if (lastQuadrant != radar_data[i].quadrant) {
+          radar.add(pv.Label)         
+              .left( radar_data[i].left )         
+              .top( radar_data[i].top )  
+              .text(  radar_data[i].quadrant )		 
+              .strokeStyle( radar_data[i].color )
+              .fillStyle( radar_data[i].color )                    
+              .font(quadrantFontSize + "px sans-serif");
+           
+          lastQuadrant = radar_data[i].quadrant;
+  
+      }
+  
+      // group items by stage based on how far they are from each arc
+      var itemsByStage = _.groupBy(radar_data[i].items, function(item) {
+        for(var arc_i = 0; arc_i < radar_arcs.length; arc_i++) {
+          if (item.pc.r < radar_arcs[arc_i].r)
+          {
+            return arc_i;
+          }
+        }
+        return 0;
+      });
       
-
-  radar.add(pv.Dot) 
-        .data(radar_data.slice(radar_quadrants[1].start,radar_quadrants[1].end)) 
-        .left(w-200+30) 
-        .top(function() {return (36 + this.index * 18);}) 
-        .size(ITEM_INDEX_SHAPE_SIZE)
-        .angle(45)
+      // In the case where a quadrant doesn't have an item, group_by will return undefined
+      // To avoid this, fill in the blanks with an empty array
+      for (var j=0;j<radar_arcs.length;++j) {
+          if (!itemsByStage[j]) itemsByStage[j] = [];
+      }
+  
+      
+      var offsetIndex = 0;
+      for (var stageIdx in _(itemsByStage).keys()) {
+  
+          if (stageIdx > 0) {
+              offsetIndex = offsetIndex + itemsByStage[stageIdx-1].length + 1; 
+              console.log("offsetIndex = " + itemsByStage[stageIdx-1].length, offsetIndex );
+          }
+  
+          radar.add(pv.Label)         
+              .left( radar_data[i].left + headingFontSize )
+              .top( radar_data[i].top + quadrantFontSize + spacer + (stageIdx * headingFontSize) + (offsetIndex * fontSize) )
+              .text( radar_arcs[stageIdx].name)
+              .strokeStyle( '#cccccc' )
+              .fillStyle( '#cccccc')                    
+              .font(headingFontSize + "px Courier New");
+  
+      radar.add(pv.Label)             
+          .left( radar_data[i].left )         
+          .top( radar_data[i].top + quadrantFontSize + spacer + (stageIdx * headingFontSize) + (offsetIndex * fontSize) )
+          .strokeStyle( radar_data[i].color )
+          .fillStyle( radar_data[i].color )                    
+          .add( pv.Dot )            
+              .def("i", radar_data[i].top + quadrantFontSize + spacer + (stageIdx * headingFontSize) + spacer  + (offsetIndex * fontSize) )
+              .data(itemsByStage[stageIdx])            
+              .top( function() { return ( this.i() + (this.index * fontSize) );} )   
+              .shape( function(d) {return (d.movement === 't' ? "triangle" : "circle");})                 
+              .cursor( function(d) { return ( d.url !== undefined ? "pointer" : "auto" ); })                                                            
+              .event("click", function(d) { if ( d.url !== undefined ){self.location =  d.url}}) 
+              .size(fontSize) 
+              .angle(45)            
+              .anchor("right")                
+                  .add(pv.Label)                
+                  .text(function(d) {return radar_quadrant_ctr++ + ". " + d.name;} );
+  
+      radar.add(pv.Dot)       
+        .def("active", false)
+        .data(itemsByStage[stageIdx])
+        .size( function(d) { return ( d.blipSize !== undefined ? d.blipSize : 70 ); })
+        .left(function(d) { var x = polar_to_raster(d.pc.r, d.pc.t)[0];
+                            //console.log("name:" + d.name + ", x:" + x); 
+                            return x;})
+        .bottom(function(d) { var y = polar_to_raster(d.pc.r, d.pc.t)[1];                                 
+                              //console.log("name:" + d.name + ", y:" + y); 
+                              return y;})
+        .title(function(d) { return d.name;})		 
+        .cursor( function(d) { return ( d.url !== undefined ? "pointer" : "auto" ); })                                                            
+        .event("click", function(d) { if ( d.url !== undefined ){self.location =  d.url}}) 
+        .angle(Math.PI)  // 180 degrees in radians !
+        .strokeStyle(radar_data[i].color)
+        .fillStyle(radar_data[i].color)
         .shape(function(d) {return (d.movement === 't' ? "triangle" : "circle");})         
-        .strokeStyle(null) 
-        .fillStyle("#aec7e8")         
-        .anchor("right").add(pv.Label).text(function(d) {return this.index + 1 + radar_quadrants[1].start + ". " + d.name;} );
-
-  radar.anchor("left").add(pv.Label)
-       .left(w-200+30)
-       .top(h/2 + 18)
-       .fillStyle("#aec7e8") 
-       .text(radar_quadrants[3].name)
-       .font("18px sans-serif");
-
-    radar.add(pv.Dot) 
-        .data(radar_data.slice(radar_quadrants[3].start,radar_quadrants[3].end)) 
-        .left(w-200+30) 
-        .top(function() {return ((h/2) + 36 + this.index * 18);}) 
-        .size(ITEM_INDEX_SHAPE_SIZE)
-        .strokeStyle(null) 
-        .angle(45)
-        .shape(function(d) {return (d.movement === 't' ? "triangle" : "circle");})        
-        .fillStyle("#aec7e8") 
-        .anchor("right").add(pv.Label).text(function(d) {return this.index + 1 + radar_quadrants[3].start + ". " + d.name;} );
-
-//arcs
-radar.add(pv.Dot)
-       .data(radar_arcs)
-       .left(w/2)
-       .bottom(h/2)
-       .radius(function(d){return d.r;})
-       .strokeStyle("#ccc")
-       .anchor("top")
-       .add(pv.Label).text(function(d) { return d.name;})
-       .font("20px sans-serif");
-
-
-//quadrant lines
-radar.add(pv.Line)
-        .data([(h/2-radar_arcs[4].r),h-(h/2-radar_arcs[4].r)])
-        .lineWidth(1)
-        .left(w/2)        
-        .bottom(function(d) {return d;})       
-        .strokeStyle("#bbb");
-
-radar.add(pv.Line)
-                .data([200,w-200])
-                .lineWidth(1)
-                .bottom(h/2)
-                .left(function(d) {return d;})       
-                .strokeStyle("#bbb");
+        .anchor("center")
+            .add(pv.Label)
+            .text(function(d) {return total_index++;}) 
+            .textBaseline("middle")
+            .textStyle("white");            
+  
+  
+      }
+  }      
+         
+   radar.anchor('radar');
+   radar.render();
        
- radar.anchor('radar');
- radar.render();
-     
-  };
+    };
