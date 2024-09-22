@@ -1,3 +1,5 @@
+document.title = "Test"
+
 var radar_data = [
 // TECHNOLOGIES
 //{"name":"Adopt","pc":{"r":0,"t":0},"movement":"r"},
