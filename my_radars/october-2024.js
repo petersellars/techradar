@@ -1,5 +1,5 @@
 //This is the title for your window tab, and your Radar
-document.title = "Personal Technology Radar (April 2024) - WIP";
+document.title = "Personal Technology Radar (October 2024) - WIP";
 
 
 //This is the concentic circles that want on your radar
@@ -132,7 +132,13 @@ var radar_data = [
 //   { name: 'Hibernate ^',    pc: { r: 380, t: 56 },    movement: 'c' },
 //   { name: 'mongoDB',    pc: { r: 330, t: 5 },    movement: 'c' }, 
 //   { name: 'Subversion',    pc: { r: 330, t: 18 },    movement: 'c' }
-  ]
+
+            // ASSESS
+            { name: "Devbox", pc: { r: 140, t: 30} , movement: 'c'},
+
+            // ADOPT
+            { name: "commitlint", pc: { r: 50, t: 40} , movement: 'c'},
+        ]
     },
     { "quadrant": "Platforms",
         "left" :45,
