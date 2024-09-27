@@ -86,6 +86,9 @@ var radar_data = [
             // {"name":"Valuable, cheap tests", "pc":{"r":130,"t":150},"movement":"c"},
 
             // ADOPT
+            { name: "Continuous compliance", pc: { r: 140, t: 140} , movement: 'c'},
+
+            // ADOPT
             { name: "Lightweight Architecture Decision Records", pc: { r: 50, t: 120} , movement: 'c'},
 
         ]
@@ -133,11 +136,12 @@ var radar_data = [
 //   { name: 'mongoDB',    pc: { r: 330, t: 5 },    movement: 'c' }, 
 //   { name: 'Subversion',    pc: { r: 330, t: 18 },    movement: 'c' }
 
-            // ASSESS
+            // TRIAL
             { name: "Devbox", pc: { r: 140, t: 30} , movement: 'c'},
 
             // ADOPT
-            { name: "commitlint", pc: { r: 50, t: 40} , movement: 'c'},
+            { name: "commitlint", pc: { r: 70, t: 60} , movement: 'c'},
+            { name: "GitHub Copilot", pc: { r: 60, t: 30} , movement: 'c'},
         ]
     },
     { "quadrant": "Platforms",
@@ -177,6 +181,9 @@ var radar_data = [
             // {"name":"MS SqlServer", "pc":{"r":390,"t":190},"movement":"c"},
             // {"name":"RHEL 5", "pc":{"r":370,"t":195},"movement":"c"}
 
+            // TRIAL
+            { name: "Rancher Desktop", pc: { r: 150, t: 235} , movement: 'c'},
+
         ]
     },
     { "quadrant": "Languages & Frameworks",
@@ -207,6 +214,13 @@ var radar_data = [
             // {"name":"Web Objects", "pc":{"r":390,"t":290},"movement":"c"},
             // {"name":"ASP Classic", "pc":{"r":375,"t":330},"movement":"c"},
             // {"name":"Java 6 and earlier", "pc":{"r":390,"t":350},"movement":"c"}
+
+            // ADOPT
+            { name: "Dotbot", pc: { r: 50, t: 325} , movement: 'c'}, 
+
+            // ASSESS
+            { name: "score", pc: { r: 240, t: 345} , movement: 'c'},            
+
         ]
     }
 ];
