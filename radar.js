@@ -63,8 +63,8 @@ function init(h,w) {
   
   //Quadrant Ledgends
   var radar_quadrant_ctr=1;
-  var quadrantFontSize = 18;
-  var headingFontSize = 14;
+  var quadrantFontSize = 14;
+  var headingFontSize = 12;
   var stageHeadingCount = 0;
   var lastRadius = 0;
   var lastQuadrant='';
@@ -81,7 +81,7 @@ function init(h,w) {
               .top( radar_data[i].top )  
               .text(  radar_data[i].quadrant )		 
               .strokeStyle( radar_data[i].color )
-              .fillStyle( radar_data[i].color )                    
+              .fillStyle( radar_data[i].color )             
               .font(quadrantFontSize + "px sans-serif");
            
           lastQuadrant = radar_data[i].quadrant;
