@@ -1,0 +1,13 @@
+{
+    "packages": [
+        "git",
+        "bash",
+        "coreutils"
+    ],
+    "shell": {
+        "init_hook": [
+            "./scripts/adr-setup.sh",
+            "export PATH=$PATH:/usr/local/bin/adr/src"
+        ]
+    }
+}
