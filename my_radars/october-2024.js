@@ -100,12 +100,12 @@ var radar_data = [
             // ADOPT
 
             // TRIAL
-            { name: "Rancher Desktop", pc: { r: 150, t: 235} , movement: 'c'},
 
             // ASSESS
             { name: "Cloud Events", pc: { r: 235, t: 205}, movement: 'c'},
 
             // HOLD
+            { name: "Rancher Desktop", pc: { r: 330, t: 215} , movement: 't'},
 
             // CONSIDERATIONS
 

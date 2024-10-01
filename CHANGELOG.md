@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved Rancher Desktop to the Hold position. [[ADR]](doc/architecture/decisions/0003-move-rancher-desktop-to-hold-in-technology-radar.md)
+
 ### Removed
 
 
