@@ -78,10 +78,11 @@ var radar_data = [
 
             // ADOPT
             { name: "commitlint", pc: { r: 70, t: 60} , movement: 'c'},
-            { name: "GitHub Copilot", pc: { r: 60, t: 30} , movement: 'c'},
+            { name: "act", pc: { r: 70, t: 30} , movement: 'c'},
 
             // TRIAL
             { name: "Devbox", pc: { r: 140, t: 30} , movement: 'c'},
+            { name: "GitHub Copilot", pc: { r: 140, t: 60} , movement: 't'},
 
             // ASSESS
 
@@ -98,6 +99,7 @@ var radar_data = [
         "items" : [
 
             // ADOPT
+            { name: "GitHub Actions", pc: { r: 50, t: 205} , movement: 'c'},
 
             // TRIAL
 
