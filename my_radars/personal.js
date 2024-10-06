@@ -1,5 +1,5 @@
 //This is the title for your window tab, and your Radar
-document.title = "Personal Technology Radar (October 2024) - WIP";
+document.title = "Personal Technology Radar";
 
 
 //This is the concentic circles that want on your radar
@@ -102,6 +102,7 @@ var radar_data = [
             { name: "GitHub Actions", pc: { r: 50, t: 205} , movement: 'c'},
 
             // TRIAL
+            { name: "Contentful", pc: { r: 140, t: 200} , movement: 'c'},
 
             // ASSESS
             { name: "Cloud Events", pc: { r: 235, t: 205}, movement: 'c'},
@@ -124,6 +125,7 @@ var radar_data = [
 
             // TRIAL
             { name: "Astro", pc: { r: 140, t: 300} , movement: 'c'},
+            { name: "fasttemplate", pc: { r: 160, t: 330} , movement: 'c'},
 
             // ASSESS
             { name: "score", pc: { r: 240, t: 345} , movement: 'c'},
