@@ -83,6 +83,7 @@ var radar_data = [
             // TRIAL
             { name: "Devbox", pc: { r: 140, t: 30} , movement: 'c'},
             { name: "GitHub Copilot", pc: { r: 140, t: 60} , movement: 't'},
+            { name: "Renovate", pc: { r: 140, t: 80} , movement: 'c'},
 
             // ASSESS
 
